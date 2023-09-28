@@ -8,6 +8,26 @@
     <title>BMI Calculator</title>
 </head>
 <body>
+    <header id="title">
+        <h1>Check your BMI</h1>
+        <h4>Enter your weight and height below to check your BMI Results</h4>
+    </header>
+    <form id="BMI" action="">
+        <div class="container">
+            <label for="weight">Put your weight in here (KG)</label><br>
+            <input type="text" id="weight" placeholder="50">
+        </div>
+        <div class="container">
+            <label for="height">Put your height in here (CM)</label><br>
+            <input type="text" id="height"placeholder="170">
+        </div>
+
+        <div class="btn-container">
+            <button id="btn-reset" type="reset" >Reset</button>
+            <button id="btn-submit" type="submit" >Calculate BMI</button>
+        </div>
+    </form>
     
+    <div class="result">Result</div>
 </body>
 </html>
