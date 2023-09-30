@@ -2,11 +2,11 @@ let inputWeight = document.getElementById("weight");
 let inputHeight = document.getElementById("height");
 
 function getWeight() {
-    return parseFloat(inputWeight.value);
+    return Number(inputWeight.value);
 }
 
 function getHeight() {
-    return parseFloat(inputHeight.value);
+    return Number(inputHeight.value);
 }
 
 function calculateBMI(weight, height) {
@@ -27,28 +27,43 @@ function categoryBMI(bmi) {
     }
 }
 
+function validateNumber() {
+    if (isNaN(getWeight()) && isNaN(getHeight())) {
+        return false;
+    } else if (!isNaN(getWeight()) && isNaN(getHeight())) {
+        return false;
+    } else if (isNaN(getWeight()) && !isNaN(getHeight())) {
+        return false;
+    }
+}
+
 let submit = document.getElementById("btn-submit");
 
 submit.addEventListener("click", function(event) {
     event.preventDefault();
 
-    let weight = getWeight();
-    let height = getHeight();
+    if (validateNumber() == false) {
+        alert("Please input valid numbers to calculate.")
+    } else {
+        let weight = getWeight();
+        let height = getHeight();
+    
+        let bmi = calculateBMI(weight, height);
+        let category = categoryBMI(bmi);
+    
+        let result = document.getElementById('result');
+    
+        let resultStyled = `
+            <p>Your BMI is 
+            <span style="font-size: 18; font-weight: 600">${bmi}</span> 
+            which means you are 
+            <span style="font-size: 18; font-weight: 600">${category}</span>
+            </p>
+        `;
+    
+        result.innerHTML = resultStyled;
+    }
 
-    let bmi = calculateBMI(weight, height);
-    let category = categoryBMI(bmi);
-
-    let result = document.getElementById('result');
-
-    let resultStyled = `
-        <p>Your BMI is 
-        <span style="font-size: 18; font-weight: 600">${bmi}</span> 
-        which means you are 
-        <span style="font-size: 18; font-weight: 600">${category}</span>
-        </p>
-    `;
-
-    result.innerHTML = resultStyled;
 });
 
 let reset = document.getElementById("btn-reset");
