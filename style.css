@@ -58,19 +58,36 @@ button {
     font-weight: 600;
     width: 9em;
     height: 2em;
-    /* padding: 8px 14px; */
-    background-color: rgb(112, 101, 212);
-    box-shadow: 5px 3px 1px rgba(112, 101, 212, 0.5);
-    color: white;
+    box-shadow: 5px 5px 0 rgba(112, 101, 212, 0.5);
     border: 0;
     border-radius: 3px;
     margin: 8px auto;
+}
+
+#btn-submit {
+    background-color: rgb(112, 101, 212);
+    color: white;
 }
 
 #btn-reset {
     background-color: white;
     border: 2px solid rgb(112, 101, 212);
     color: rgb(112, 101, 212);
+}
+
+#btn-submit:hover {
+    cursor: pointer;
+    background-color: rgba(116, 106, 228, 0.8);
+}
+
+#btn-reset:hover {
+    cursor: pointer;
+    background-color: rgba(224, 224, 224);
+}
+
+#btn-submit:active, #btn-reset:active {
+    box-shadow: none;
+    transform: translate3d(5px, 5px, 0)
 }
 
 .btn-container {
